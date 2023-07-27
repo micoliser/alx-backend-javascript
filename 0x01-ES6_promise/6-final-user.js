@@ -16,7 +16,7 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
       value:
         uploadRes.status === 'fulfilled'
           ? uploadRes.value
-          : uploadRes.reason.message,
+          : String(uploadRes.reason),
     },
   ]);
 }
