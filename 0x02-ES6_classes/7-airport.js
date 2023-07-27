@@ -1,4 +1,3 @@
-import util from 'util';
 /* eslint-disable no-underscore-dangle */
 export default class Airport {
   constructor(name, code) {
@@ -24,7 +23,7 @@ export default class Airport {
     this._code = code;
   }
 
-  [util.inspect.custom]() {
-    return `Airport [${this.code}] { _name: '${this.name}', _code: '${this.code}' }`;
+  get [Symbol.toStringTag]() {
+    return this._code;
   }
 }
