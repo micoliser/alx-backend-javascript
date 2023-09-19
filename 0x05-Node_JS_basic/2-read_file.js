@@ -20,7 +20,7 @@ function countStudents (path) {
         `Number of students in ${field}: ${noOfStudents}. List: ${listOfStudents}`
       );
     }
-  } catch (err) {
+  } catch (_err) {
     throw new Error('Cannot load the database');
   }
 }
