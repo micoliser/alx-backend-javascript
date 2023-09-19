@@ -4,15 +4,18 @@ function countStudents (path) {
   try {
     const data = fs.readFileSync(path, { encoding: 'utf8' });
     const lines = data.split('\n');
-    console.log(`Number of students: ${lines.length - 1}`);
+    let noOfStudents = 0;
     const fields = {};
     for (const line of lines) {
       const details = line.split(',');
+      // eslint-disable-next-line no-continue
       if (line === '' || details[3] === 'field') continue;
       const [firstname, field] = [details[0], details[3]];
       if (!fields[field]) fields[field] = [firstname];
       else fields[field].push(firstname);
+      noOfStudents += 1;
     }
+    console.log(`Number of students: ${noOfStudents}`);
     for (const field of Object.keys(fields)) {
       const noOfStudents = fields[field].length;
       const listOfStudents = fields[field].join(', ');
