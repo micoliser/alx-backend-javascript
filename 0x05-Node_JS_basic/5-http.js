@@ -1,5 +1,5 @@
 const http = require('http');
-const fs = require('fs/promises');
+const fs = require('fs');
 
 const app = http.createServer((req, res) => {
   if (req.url === '/') res.end('Hello Holberton School!');
