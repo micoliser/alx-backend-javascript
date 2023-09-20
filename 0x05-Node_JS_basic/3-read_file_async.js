@@ -21,6 +21,7 @@ function countStudents(path) {
           const noOfStudents = fields[field].length;
           const listOfStudents = fields[field].join(', ');
           console.log(
+            // eslint-disable-next-line comma-dangle
             `Number of students in ${field}: ${noOfStudents}. List: ${listOfStudents}`
           );
         }
@@ -28,7 +29,7 @@ function countStudents(path) {
       })
       // eslint-disable-next-line no-unused-vars
       .catch((_err) => {
-        reject(Error('Cannot load the database'));
+        reject(new Error('Cannot load the database'));
       });
   });
 }

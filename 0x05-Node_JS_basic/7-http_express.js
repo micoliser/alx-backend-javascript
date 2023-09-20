@@ -9,9 +9,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/students', (req, res) => {
+  let response = 'This is the list of our students\n';
   fs.readFile(process.argv[2], { encoding: 'utf8' })
     .then((data) => {
-      let response = 'This is the list of our students\n';
       const lines = data.split('\n');
       let noOfStudents = 0;
       const fields = {};
@@ -34,7 +34,7 @@ app.get('/students', (req, res) => {
       res.send(response);
     })
     .catch((_err) => {
-      res.send('Cannot load the database');
+      res.send(`${response}Cannot load the database`);
     });
 });
 

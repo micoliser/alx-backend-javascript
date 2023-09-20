@@ -4,9 +4,9 @@ const fs = require('fs/promises');
 const app = http.createServer((req, res) => {
   if (req.url === '/') res.end('Hello Holberton School!');
   else if (req.url === '/students') {
+    let response = 'This is the list of our students\n';
     fs.readFile(process.argv[2], { encoding: 'utf8' })
       .then((data) => {
-        let response = 'This is the list of our students\n';
         const lines = data.split('\n');
         let noOfStudents = 0;
         const fields = {};
@@ -30,7 +30,7 @@ const app = http.createServer((req, res) => {
       })
       // eslint-disable-next-line no-unused-vars
       .catch((_err) => {
-        res.end('Cannot load the database');
+        res.end(`${response}Cannot load the database`);
       });
   }
 });

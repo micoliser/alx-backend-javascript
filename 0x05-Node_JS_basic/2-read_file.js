@@ -20,6 +20,7 @@ function countStudents(path) {
       const noOfStudents = fields[field].length;
       const listOfStudents = fields[field].join(', ');
       console.log(
+        // eslint-disable-next-line comma-dangle
         `Number of students in ${field}: ${noOfStudents}. List: ${listOfStudents}`
       );
     }
