@@ -1,6 +1,6 @@
 const chai = require('chai');
 const expect = chai.expect;
-const calculateNumber = require('./1-calcul');
+const calculateNumber = require('./2-calcul_chai');
 
 describe('calculateNumber', () => {
   it('should return 4 when adding 1 and 3', () => {
